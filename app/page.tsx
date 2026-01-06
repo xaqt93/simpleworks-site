@@ -28,7 +28,15 @@ export default function Home() {
             boxShadow: "0 20px 45px rgba(0,0,0,0.35)",
           }}
         >
-          <span style={{ fontSize: 44 }}>🤍</span>
+          <img
+              src="/simple-date-icon.png"
+              alt="Simple Date app icon"
+              style={{
+                width: 56,
+                height: 56,
+              borderRadius: 14,
+              }}
+/>
         </div>
 
         <h1
