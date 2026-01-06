@@ -59,7 +59,7 @@ export default function Home() {
             lineHeight: 1.5,
           }}
         >
-          Blind dates, done right. One match at a time. Designed to be deleted.
+          Blind dates, done right. One match at a time.
         </p>
 
         <div
