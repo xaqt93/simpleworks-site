@@ -59,7 +59,7 @@ export default function Home() {
             lineHeight: 1.5,
           }}
         >
-          Dating, the way it should be.
+          Because dating should feel human again.
         </p>
 
         <div
