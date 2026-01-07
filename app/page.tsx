@@ -61,7 +61,7 @@ export default function Home() {
             lineHeight: 1.5,
           }}
         >
-          Because dating should feel human again.
+          Because dating should feel human again
         </p>
 
         <div
