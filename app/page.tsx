@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main
@@ -73,9 +75,9 @@ export default function Home() {
           <a href="/how-it-works" style={pillStyle}>
             How it works
           </a>
-          <a href="/privacy" style={pillStyle}>
+          <Link href="/privacy" style={pillStyle}>
             Privacy
-          </a>
+          </Link>
         </div>
 
         <p
