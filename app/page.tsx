@@ -73,7 +73,7 @@ export default function Home() {
           <a href="/how-it-works" style={pillStyle}>
             How it works
           </a>
-          <a href="privacy" style={pillStyle}>
+          <a href="/privacy" style={pillStyle}>
             Privacy
           </a>
         </div>
