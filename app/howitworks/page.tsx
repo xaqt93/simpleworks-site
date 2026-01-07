@@ -174,7 +174,7 @@ export default function HowItWorksPage() {
       <footer style={footerStyle}>
         <span style={{ opacity: 0.9 }}>© {new Date().getFullYear()} Simple Date</span>
         <span style={{ opacity: 0.7 }}>
-          Built to be deleted (with love).
+          Built to feel human.
         </span>
       </footer>
     </main>
