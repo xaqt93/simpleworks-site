@@ -72,7 +72,7 @@ export default function Home() {
             flexWrap: "wrap",
           }}
         >
-          <Link href="/how-it-works" style={pillStyle}>
+          <Link href="/howitworks" style={pillStyle}>
             How it works
           </Link>
           <Link href="/privacy" style={pillStyle}>
