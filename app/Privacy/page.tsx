@@ -1,10 +1,13 @@
+import Link from "next/link";
+import type { CSSProperties } from "react";
+
 export default function PrivacyPage() {
   return (
     <main style={pageStyle}>
       <div style={cardStyle}>
-        <a href="/" style={backStyle} aria-label="Back to home">
+        <Link href="/" style={backStyle} aria-label="Back to home">
           ← Back
-        </a>
+        </Link>
 
         <h1 style={titleStyle}>Privacy Policy</h1>
         <p style={subtitleStyle}>Last updated: {new Date().toLocaleDateString()}</p>
@@ -57,7 +60,7 @@ export default function PrivacyPage() {
   );
 }
 
-const pageStyle: React.CSSProperties = {
+const pageStyle: CSSProperties = {
   minHeight: "100vh",
   padding: "48px 24px",
   background:
@@ -67,7 +70,7 @@ const pageStyle: React.CSSProperties = {
   justifyContent: "center",
 };
 
-const cardStyle: React.CSSProperties = {
+const cardStyle: CSSProperties = {
   width: "100%",
   maxWidth: 860,
   background: "rgba(255,255,255,0.10)",
@@ -78,7 +81,7 @@ const cardStyle: React.CSSProperties = {
   backdropFilter: "blur(10px)",
 };
 
-const backStyle: React.CSSProperties = {
+const backStyle: CSSProperties = {
   display: "inline-block",
   textDecoration: "none",
   color: "rgba(255,255,255,0.85)",
@@ -86,37 +89,37 @@ const backStyle: React.CSSProperties = {
   marginBottom: 18,
 };
 
-const titleStyle: React.CSSProperties = {
+const titleStyle: CSSProperties = {
   margin: 0,
   fontSize: "clamp(34px, 4.5vw, 46px)",
   fontWeight: 850,
   letterSpacing: "-0.02em",
 };
 
-const subtitleStyle: React.CSSProperties = {
+const subtitleStyle: CSSProperties = {
   marginTop: 10,
   marginBottom: 18,
   color: "rgba(255,255,255,0.75)",
 };
 
-const contentStyle: React.CSSProperties = {
+const contentStyle: CSSProperties = {
   marginTop: 18,
   color: "rgba(255,255,255,0.85)",
   lineHeight: 1.65,
 };
 
-const h2Style: React.CSSProperties = {
+const h2Style: CSSProperties = {
   marginTop: 22,
   marginBottom: 10,
   fontSize: 18,
 };
 
-const linkStyle: React.CSSProperties = {
+const linkStyle: CSSProperties = {
   color: "white",
   textDecoration: "underline",
 };
 
-const finePrintStyle: React.CSSProperties = {
+const finePrintStyle: CSSProperties = {
   marginTop: 26,
   fontSize: 13,
   color: "rgba(255,255,255,0.55)",
