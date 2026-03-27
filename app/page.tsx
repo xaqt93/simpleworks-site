@@ -1,6 +1,47 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
+const launchDate = new Date("2026-04-25T00:00:00-04:00");
+
+function formatTimeLeft() {
+  const now = new Date();
+  const difference = launchDate.getTime() - now.getTime();
+
+  if (difference <= 0) {
+    return {
+      days: "00",
+      hours: "00",
+      minutes: "00",
+      seconds: "00",
+    };
+  }
+
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((difference / (1000 * 60)) % 60);
+  const seconds = Math.floor((difference / 1000) % 60);
+
+  return {
+    days: String(days).padStart(2, "0"),
+    hours: String(hours).padStart(2, "0"),
+    minutes: String(minutes).padStart(2, "0"),
+    seconds: String(seconds).padStart(2, "0"),
+  };
+}
+
 export default function Home() {
+  const [timeLeft, setTimeLeft] = useState(formatTimeLeft);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft(formatTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main
       style={{
@@ -21,7 +62,7 @@ export default function Home() {
             width: 96,
             height: 96,
             borderRadius: 24,
-            margin: "0 auto 20px",
+            margin: "0 auto 14px",
             background: "rgba(255,255,255,0.12)",
             border: "1px solid rgba(255,255,255,0.22)",
             display: "flex",
@@ -54,8 +95,8 @@ export default function Home() {
 
         <p
           style={{
-            marginTop: 16,
-            marginBottom: 28,
+            marginTop: 12,
+            marginBottom: 18,
             fontSize: "clamp(16px, 2.2vw, 20px)",
             color: "rgba(255,255,255,0.8)",
             lineHeight: 1.5,
@@ -66,29 +107,127 @@ export default function Home() {
 
         <div
           style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "10px 16px",
+            borderRadius: 999,
+            marginBottom: 12,
+            background: "rgba(255,255,255,0.12)",
+            border: "1px solid rgba(255,255,255,0.2)",
+            color: "rgba(255,255,255,0.88)",
+            fontSize: 14,
+            fontWeight: 600,
+            letterSpacing: "0.01em",
+          }}
+        >
+          Launching in Orlando, FL
+        </div>
+
+        <div
+          style={{
+            margin: "0 auto 32px",
+            padding: "18px 16px",
+            maxWidth: 560,
+            borderRadius: 22,
+            background: "rgba(255,255,255,0.1)",
+            border: "1px solid rgba(255,255,255,0.18)",
+            boxShadow: "0 18px 40px rgba(0,0,0,0.24)",
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          <p
+            style={{
+              margin: "0 0 18px",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.68)",
+            }}
+          >
+            April 25, 2026
+          </p>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, minmax(70px, 1fr))",
+              gap: 12,
+            }}
+          >
+            {[
+              { label: "Days", value: timeLeft.days },
+              { label: "Hours", value: timeLeft.hours },
+              { label: "Minutes", value: timeLeft.minutes },
+              { label: "Seconds", value: timeLeft.seconds },
+            ].map((item) => (
+              <div
+                key={item.label}
+                style={{
+                  padding: "14px 8px",
+                  borderRadius: 22,
+                  background: "rgba(255,255,255,0.08)",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "clamp(24px, 4vw, 34px)",
+                    fontWeight: 800,
+                    letterSpacing: "-0.03em",
+                  }}
+                >
+                  {item.value}
+                </div>
+                <div
+                  style={{
+                    marginTop: 6,
+                    fontSize: 12,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    color: "rgba(255,255,255,0.62)",
+                  }}
+                >
+                  {item.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div
+          style={{
             display: "flex",
             gap: 12,
             justifyContent: "center",
             flexWrap: "wrap",
           }}
         >
+          <Link
+            href="/cities"
+            style={{
+              ...pillStyle,
+              background: "rgba(255,255,255,0.28)",
+              border: "1px solid rgba(255,255,255,0.4)",
+            }}
+          >
+            Available Cities
+          </Link>
           <Link href="/howitworks" style={pillStyle}>
             How it works
           </Link>
-          <Link href="/privacy" style={pillStyle}>
+        </div>
+
+        <div
+          style={{
+            marginTop: 36,
+          }}
+        >
+          <Link href="/privacy" style={footerLinkStyle}>
             Privacy
           </Link>
         </div>
-
-        <p
-          style={{
-            marginTop: 36,
-            fontSize: 14,
-            color: "rgba(255,255,255,0.55)",
-          }}
-        >
-          Coming soon.
-        </p>
       </div>
     </main>
   );
@@ -104,5 +243,13 @@ const pillStyle: React.CSSProperties = {
   border: "1px solid rgba(255,255,255,0.22)",
   color: "white",
   textDecoration: "none",
+  minWidth: 150,
   fontWeight: 600,
+};
+
+const footerLinkStyle: React.CSSProperties = {
+  color: "rgba(255,255,255,0.45)",
+  textDecoration: "none",
+  fontSize: 14,
+  fontWeight: 500,
 };
