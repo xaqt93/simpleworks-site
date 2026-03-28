@@ -9,14 +9,14 @@ export default function UserAgreementPage() {
           ← Back
         </Link>
 
-        <h1 style={titleStyle}>User Agreement</h1>
+        <h1 style={titleStyle}>Simple Date Terms of Use (User Agreement)</h1>
         <p style={subtitleStyle}>Last updated: {new Date().toLocaleDateString()}</p>
 
         <div style={contentStyle}>
           <h2 style={h2Style}>1. Introduction</h2>
           <p>
             These Terms of Use (the “Terms”) form a binding contract between you and
-            Simple Works, LLC (also trading as Simple Works Applications),
+            Simple Works and Applications, LLC (also trading as Simple Works Applications),
             governing your use of the Simple Date mobile application and related
             services (collectively, the “Service”). By accessing or using the
             Service, you agree to be bound by these Terms. We may update the Terms
@@ -108,12 +108,18 @@ export default function UserAgreementPage() {
               your responsibility to ensure it is legal for you to use the Service.
             </li>
           </ol>
+          <p>
+            We reserve the right to investigate suspected violations of these Terms
+            and to suspend, restrict, or terminate access to the Service whenever
+            we determine, in our sole discretion, that such action is necessary to
+            protect users, enforce these Terms, or protect the Service.
+          </p>
 
           <h2 style={h2Style}>4. User-Generated Content</h2>
           <ul style={listStyle}>
             <li>
               <strong>Ownership:</strong> You retain ownership of content you submit
-              (“User Content”), but you grant Simple Works a non-exclusive,
+              (“User Content”), but you grant Simple Works and Applications a non-exclusive,
               royalty-free, perpetual, worldwide licence to use, modify,
               reproduce and display your User Content in connection with the
               Service.
@@ -170,7 +176,7 @@ export default function UserAgreementPage() {
             </li>
             <li>
               <strong>User interactions:</strong> You are solely responsible for your
-              interactions with other users. Simple Works does not conduct criminal
+              interactions with other users. Simple Works and Applications does not conduct criminal
               background checks and is not responsible for the conduct of any user.
               We do not arrange or supervise dates and are not liable for what
               happens during or after meetings. Exercise caution and follow safety
@@ -192,7 +198,7 @@ export default function UserAgreementPage() {
           <ul style={listStyle}>
             <li>
               <strong>Limitation of liability:</strong> To the fullest extent
-              permitted by law, Simple Works and its owners will not be liable for
+              permitted by law, Simple Works and Applications and its owners will not be liable for
               any damages (direct or indirect), loss of data, income, profit,
               goodwill or property arising from your use of the Service. If you
               become dissatisfied, your sole remedy is to stop using the Service.
@@ -201,7 +207,7 @@ export default function UserAgreementPage() {
 
           <h2 style={h2Style}>8. Indemnity</h2>
           <p>
-            You agree to indemnify, defend and hold harmless Simple Works, its
+            You agree to indemnify, defend and hold harmless Simple Works and Applications, its
             affiliates and their directors, officers and employees from any claims,
             damages or expenses arising from your negligence, misuse of the
             Service, User Content, breach of these Terms or violation of law.
@@ -209,11 +215,11 @@ export default function UserAgreementPage() {
 
           <h2 style={h2Style}>9. Data Privacy</h2>
           <p>
-            Your use of the Service is subject to our Privacy Policy, which forms part of these Terms. By using the Service you acknowledge that we may collect and use your personal information as described in our{" "}
+            Your use of the Service is subject to our {" "}
             <a href="/privacy" style={linkStyle}>
               Privacy Policy
             </a>
-            .
+            , which forms part of these Terms. By using the Service you acknowledge that we may collect and use your personal information as described in the Privacy Policy.
           </p>
 
           <h2 style={h2Style}>10. Governing Law and Dispute Resolution</h2>
@@ -231,7 +237,14 @@ export default function UserAgreementPage() {
             email. Continued use after the effective date constitutes acceptance.
           </p>
 
-          <h2 style={h2Style}>12. Non-Discrimination and Local Laws (Orlando)</h2>
+          <h2 style={h2Style}>12. Severability</h2>
+          <p>
+            If any provision of these Terms is found to be invalid or
+            unenforceable, the remaining provisions will remain in full force and
+            effect.
+          </p>
+
+          <h2 style={h2Style}>13. Non-Discrimination and Local Laws (Orlando)</h2>
           <p>
             Simple Date is committed to inclusion and equal treatment. In
             accordance with the City of Orlando’s anti-discrimination ordinance, we

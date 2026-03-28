@@ -9,19 +9,19 @@ export default function PrivacyPage() {
           ← Back
         </Link>
 
-        <h1 style={titleStyle}>Privacy Policy</h1>
+        <h1 style={titleStyle}>Simple Date Privacy Policy</h1>
         <p style={subtitleStyle}>Last updated: {new Date().toLocaleDateString()}</p>
 
         <div style={contentStyle}>
           <h2 style={h2Style}>1. Who We Are</h2>
           <p>
             The Simple Date mobile application and associated websites
-            (collectively the “Service”) are operated by Simple Works, LLC. We are
+            (collectively the “Service”) are operated by Simple Works and Applications, LLC. We are
             responsible for the collection, storage and processing of personal
             information through the Service. If you have questions, contact support
             at{" "}
-            <a href="mailto:support@simpleworksapps.com" style={linkStyle}>
-              support@simpleworksapps.com
+            <a href="mailto:support@simplework.app" style={linkStyle}>
+              support@simplework.app
             </a>
             .
           </p>
@@ -78,7 +78,7 @@ export default function PrivacyPage() {
             We process your data based on your consent (e.g., when you provide
             information), our legitimate interests (e.g., improving safety and
             preventing fraud), and to perform the contract between you and Simple
-            Works.
+            Works and Applications.
           </p>
 
           <h2 style={h2Style}>5. Disclosure of Information</h2>
@@ -101,7 +101,7 @@ export default function PrivacyPage() {
               to process payments and resolve disputes.
             </li>
             <li>
-              <strong>Merger or acquisition:</strong> If Simple Works is involved in
+              <strong>Merger or acquisition:</strong> If Simple Works and Applications is involved in
               a merger or sale, we will notify you before transferring personal data.
             </li>
           </ul>
@@ -220,8 +220,8 @@ export default function PrivacyPage() {
 
           <p>
             To exercise any of these rights, please contact us at{" "}
-            <a href="mailto:privacy@simpleworksapps.com" style={linkStyle}>
-              privacy@simpleworksapps.com
+            <a href="mailto:legal@simplework.app" style={linkStyle}>
+              legal@simplework.app
             </a>{" "}
             with the subject line “Florida Privacy Request.” We will authenticate
             your request and respond within 45 days, with the possibility of a
