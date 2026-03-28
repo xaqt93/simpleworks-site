@@ -222,10 +222,16 @@ export default function Home() {
         <div
           style={{
             marginTop: 36,
+            display: "flex",
+            gap: 16,
+            justifyContent: "center",
           }}
         >
           <Link href="/privacy" style={footerLinkStyle}>
             Privacy
+          </Link>
+          <Link href="/user-agreement" style={footerLinkStyle}>
+            User Agreement
           </Link>
         </div>
       </div>
