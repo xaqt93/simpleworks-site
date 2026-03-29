@@ -431,6 +431,9 @@ export default function Home() {
           <Link href="/howitworks" style={pillStyle}>
             How it works
           </Link>
+          <Link href="/waitlist" style={pillStyle}>
+            Join Waitlist
+          </Link>
         </div>
 
         <div
