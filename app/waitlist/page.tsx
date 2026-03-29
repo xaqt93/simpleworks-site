@@ -115,25 +115,6 @@ export default function WaitlistPage() {
           textAlign: "center",
         }}
       >
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            padding: "10px 14px",
-            borderRadius: 999,
-            marginBottom: 22,
-            background: "rgba(255,255,255,0.1)",
-            border: "1px solid rgba(255,255,255,0.14)",
-            color: "rgba(255,255,255,0.82)",
-            fontSize: 12,
-            fontWeight: 700,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-          }}
-        >
-          Launch Waitlist
-        </div>
 
         <h1
           style={{
