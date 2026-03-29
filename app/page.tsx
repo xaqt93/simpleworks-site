@@ -58,6 +58,7 @@ export default function Home() {
     "idle" | "success" | "error"
   >("idle");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -121,6 +122,7 @@ export default function Home() {
       setWaitlistMessage("You’re on the waitlist 🎉");
       setWaitlistEmail("");
       setWaitlistMessageType("success");
+      setIsWaitlistOpen(true);
     } catch (error) {
       console.error("Failed to join waitlist:", error);
       setWaitlistMessage("Something went wrong. Please try again.");
@@ -285,129 +287,142 @@ export default function Home() {
         </div>
 
         <div
+          id="waitlist-panel"
           style={{
-            margin: "0 auto 28px",
-            padding: "22px 18px 18px",
             maxWidth: 560,
-            borderRadius: 24,
-            background: "rgba(255,255,255,0.11)",
-            border: "1px solid rgba(255,255,255,0.16)",
-            boxShadow: "0 18px 40px rgba(0,0,0,0.24)",
-            backdropFilter: "blur(14px)",
-            textAlign: "left",
+            margin: isWaitlistOpen ? "0 auto 28px" : "0 auto 0",
+            maxHeight: isWaitlistOpen ? 420 : 0,
+            opacity: isWaitlistOpen ? 1 : 0,
+            overflow: "hidden",
+            transform: isWaitlistOpen ? "translateY(0)" : "translateY(-10px)",
+            transition:
+              "max-height 0.35s ease, opacity 0.25s ease, transform 0.35s ease, margin 0.35s ease",
           }}
+          aria-hidden={!isWaitlistOpen}
         >
           <div
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              padding: "8px 12px",
-              borderRadius: 999,
-              marginBottom: 14,
-              background: "rgba(255,255,255,0.1)",
-              border: "1px solid rgba(255,255,255,0.14)",
-              color: "rgba(255,255,255,0.82)",
-              fontSize: 12,
-              fontWeight: 700,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
+              padding: "22px 18px 18px",
+              borderRadius: 24,
+              background: "rgba(255,255,255,0.11)",
+              border: "1px solid rgba(255,255,255,0.16)",
+              boxShadow: "0 18px 40px rgba(0,0,0,0.24)",
+              backdropFilter: "blur(14px)",
+              textAlign: "left",
             }}
           >
-            Join the waitlist
-          </div>
-
-          <h2
-            style={{
-              margin: "0 0 8px",
-              fontSize: "clamp(24px, 3vw, 30px)",
-              fontWeight: 800,
-              letterSpacing: "-0.02em",
-            }}
-          >
-            Get first dibs when Simple Date lands.
-          </h2>
-
-          <p
-            style={{
-              margin: "0 0 18px",
-              fontSize: 15,
-              lineHeight: 1.6,
-              color: "rgba(255,255,255,0.78)",
-            }}
-          >
-            Joining the waitlist gets you launch updates, early access news, and first crack at Orlando when the app goes live.
-          </p>
-
-          <form
-            onSubmit={handleWaitlistSubmit}
-            style={{
-              display: "flex",
-              gap: 12,
-              flexWrap: "wrap",
-              alignItems: "center",
-            }}
-          >
-            <input
-              type="email"
-              value={waitlistEmail}
-              onChange={(event) => setWaitlistEmail(event.target.value)}
-              placeholder="Enter your email"
-              autoComplete="email"
-              aria-label="Email address"
-              style={{
-                flex: "1 1 280px",
-                minWidth: 0,
-                padding: "14px 16px",
-                borderRadius: 16,
-                border: "1px solid rgba(255,255,255,0.16)",
-                background: "rgba(7, 26, 45, 0.42)",
-                color: "white",
-                fontSize: 15,
-                outline: "none",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
-              }}
-            />
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
+            <div
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                justifyContent: "center",
-                minWidth: 168,
-                padding: "14px 20px",
-                borderRadius: 16,
-                border: "1px solid rgba(255,255,255,0.22)",
-                background:
-                  "linear-gradient(135deg, rgba(120,220,230,0.9) 0%, rgba(120,160,255,0.92) 100%)",
-                color: "#041525",
-                fontSize: 15,
-                fontWeight: 800,
-                letterSpacing: "0.01em",
-                cursor: isSubmitting ? "default" : "pointer",
-                opacity: isSubmitting ? 0.75 : 1,
-                boxShadow: "0 14px 30px rgba(64, 146, 255, 0.28)",
+                gap: 8,
+                padding: "8px 12px",
+                borderRadius: 999,
+                marginBottom: 14,
+                background: "rgba(255,255,255,0.1)",
+                border: "1px solid rgba(255,255,255,0.14)",
+                color: "rgba(255,255,255,0.82)",
+                fontSize: 12,
+                fontWeight: 700,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
               }}
             >
-              {isSubmitting ? "Joining..." : "Join Waitlist"}
-            </button>
-          </form>
+              Join the waitlist
+            </div>
 
-          <p
-            style={{
-              minHeight: 22,
-              margin: "12px 0 0",
-              fontSize: 14,
-              color:
-                waitlistMessageType === "error"
-                  ? "rgba(255, 176, 176, 0.96)"
-                  : "rgba(188, 255, 214, 0.96)",
-            }}
-          >
-            {waitlistMessage || "No spam. Just the good stuff."}
-          </p>
+            <h2
+              style={{
+                margin: "0 0 8px",
+                fontSize: "clamp(24px, 3vw, 30px)",
+                fontWeight: 800,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Get first dibs when Simple Date lands.
+            </h2>
+
+            <p
+              style={{
+                margin: "0 0 18px",
+                fontSize: 15,
+                lineHeight: 1.6,
+                color: "rgba(255,255,255,0.78)",
+              }}
+            >
+              Joining the waitlist gets you launch updates, early access news, and first crack at Orlando when the app goes live.
+            </p>
+
+            <form
+              onSubmit={handleWaitlistSubmit}
+              style={{
+                display: "flex",
+                gap: 12,
+                flexWrap: "wrap",
+                alignItems: "center",
+              }}
+            >
+              <input
+                type="email"
+                value={waitlistEmail}
+                onChange={(event) => setWaitlistEmail(event.target.value)}
+                placeholder="Enter your email"
+                autoComplete="email"
+                aria-label="Email address"
+                style={{
+                  flex: "1 1 280px",
+                  minWidth: 0,
+                  padding: "14px 16px",
+                  borderRadius: 16,
+                  border: "1px solid rgba(255,255,255,0.16)",
+                  background: "rgba(7, 26, 45, 0.42)",
+                  color: "white",
+                  fontSize: 15,
+                  outline: "none",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
+                }}
+              />
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minWidth: 168,
+                  padding: "14px 20px",
+                  borderRadius: 16,
+                  border: "1px solid rgba(255,255,255,0.22)",
+                  background:
+                    "linear-gradient(135deg, rgba(120,220,230,0.9) 0%, rgba(120,160,255,0.92) 100%)",
+                  color: "#041525",
+                  fontSize: 15,
+                  fontWeight: 800,
+                  letterSpacing: "0.01em",
+                  cursor: isSubmitting ? "default" : "pointer",
+                  opacity: isSubmitting ? 0.75 : 1,
+                  boxShadow: "0 14px 30px rgba(64, 146, 255, 0.28)",
+                }}
+              >
+                {isSubmitting ? "Joining..." : "Join Waitlist"}
+              </button>
+            </form>
+
+            <p
+              style={{
+                minHeight: 22,
+                margin: "12px 0 0",
+                fontSize: 14,
+                color:
+                  waitlistMessageType === "error"
+                    ? "rgba(255, 176, 176, 0.96)"
+                    : "rgba(188, 255, 214, 0.96)",
+              }}
+            >
+              {waitlistMessage || "No spam. Just the good stuff."}
+            </p>
+          </div>
         </div>
 
         <div
@@ -431,6 +446,19 @@ export default function Home() {
           <Link href="/howitworks" style={pillStyle}>
             How it works
           </Link>
+          <button
+            type="button"
+            onClick={() => {
+              setIsWaitlistOpen((current) => !current);
+              setWaitlistMessage("");
+              setWaitlistMessageType("idle");
+            }}
+            style={pillButtonStyle}
+            aria-expanded={isWaitlistOpen}
+            aria-controls="waitlist-panel"
+          >
+            {isWaitlistOpen ? "Hide Waitlist" : "Join Waitlist"}
+          </button>
         </div>
 
         <div
@@ -465,6 +493,23 @@ const pillStyle: React.CSSProperties = {
   textDecoration: "none",
   minWidth: 150,
   fontWeight: 600,
+};
+
+const pillButtonStyle: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "12px 18px",
+  borderRadius: 999,
+  background: "linear-gradient(135deg, rgba(120,220,230,0.9) 0%, rgba(120,160,255,0.92) 100%)",
+  border: "1px solid rgba(255,255,255,0.22)",
+  color: "#041525",
+  textDecoration: "none",
+  minWidth: 150,
+  fontWeight: 700,
+  fontSize: 16,
+  cursor: "pointer",
+  boxShadow: "0 14px 30px rgba(64, 146, 255, 0.28)",
 };
 
 const footerLinkStyle: React.CSSProperties = {
