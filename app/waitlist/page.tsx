@@ -75,6 +75,7 @@ export default function WaitlistPage() {
 
       if (!response.ok) {
         const errorText = await response.text();
+        console.error("Waitlist save response:", errorText);
         throw new Error(errorText || "Failed to save waitlist entry.");
       }
 
@@ -83,7 +84,11 @@ export default function WaitlistPage() {
       setMessageType("success");
     } catch (error) {
       console.error("Waitlist signup failed:", error);
-      setMessage("Something went wrong. Please try again.");
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again.";
+      setMessage(errorMessage);
       setMessageType("error");
     } finally {
       setIsSubmitting(false);
