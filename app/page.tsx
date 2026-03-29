@@ -1,9 +1,44 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
 
 const launchDate = new Date("2026-04-25T00:00:00-04:00");
+
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+};
+
+let firestoreDbPromise: Promise<any> | null = null;
+
+async function getFirestoreDb() {
+  if (!firestoreDbPromise) {
+    firestoreDbPromise = (async () => {
+      const [{ initializeApp, getApps }, { getFirestore }] = await Promise.all([
+        import("firebase/app"),
+        import("firebase/firestore"),
+      ]);
+
+      const missingConfig = Object.entries(firebaseConfig)
+        .filter(([, value]) => !value)
+        .map(([key]) => key);
+
+      if (missingConfig.length > 0) {
+        throw new Error(`Missing Firebase config: ${missingConfig.join(", ")}`);
+      }
+
+      const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+      return getFirestore(app);
+    })();
+  }
+
+  return firestoreDbPromise;
+}
 
 function formatTimeLeft() {
   const now = new Date();
@@ -33,6 +68,12 @@ function formatTimeLeft() {
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState(formatTimeLeft);
+  const [waitlistEmail, setWaitlistEmail] = useState("");
+  const [waitlistMessage, setWaitlistMessage] = useState("");
+  const [waitlistMessageType, setWaitlistMessageType] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,6 +82,61 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, []);
+
+  async function handleWaitlistSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const email = waitlistEmail.trim().toLowerCase();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email) {
+      setWaitlistMessage("Enter your email to join the waitlist.");
+      setWaitlistMessageType("error");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      setWaitlistMessage("That email doesn’t look quite right.");
+      setWaitlistMessageType("error");
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      setWaitlistMessage("");
+      setWaitlistMessageType("idle");
+
+      const db = await getFirestoreDb();
+      const { addDoc, collection, query, where, getDocs, serverTimestamp } =
+        await import("firebase/firestore");
+
+      const waitlistRef = collection(db, "waitlist");
+      const existingEmailQuery = query(waitlistRef, where("email", "==", email));
+      const existingEmailSnapshot = await getDocs(existingEmailQuery);
+
+      if (!existingEmailSnapshot.empty) {
+        setWaitlistMessage("You’re already on the waitlist 💌");
+        setWaitlistMessageType("success");
+        return;
+      }
+
+      await addDoc(waitlistRef, {
+        email,
+        createdAt: serverTimestamp(),
+        source: "website",
+      });
+
+      setWaitlistEmail("");
+      setWaitlistMessage("You’re on the waitlist 🎉");
+      setWaitlistMessageType("success");
+    } catch (error) {
+      console.error("Failed to join waitlist:", error);
+      setWaitlistMessage("Something went wrong. Please try again.");
+      setWaitlistMessageType("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <main
@@ -194,6 +290,132 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div
+          style={{
+            margin: "0 auto 28px",
+            padding: "22px 18px 18px",
+            maxWidth: 560,
+            borderRadius: 24,
+            background: "rgba(255,255,255,0.11)",
+            border: "1px solid rgba(255,255,255,0.16)",
+            boxShadow: "0 18px 40px rgba(0,0,0,0.24)",
+            backdropFilter: "blur(14px)",
+            textAlign: "left",
+          }}
+        >
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              padding: "8px 12px",
+              borderRadius: 999,
+              marginBottom: 14,
+              background: "rgba(255,255,255,0.1)",
+              border: "1px solid rgba(255,255,255,0.14)",
+              color: "rgba(255,255,255,0.82)",
+              fontSize: 12,
+              fontWeight: 700,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+            }}
+          >
+            Join the waitlist
+          </div>
+
+          <h2
+            style={{
+              margin: "0 0 8px",
+              fontSize: "clamp(24px, 3vw, 30px)",
+              fontWeight: 800,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Get first dibs when Simple Date lands.
+          </h2>
+
+          <p
+            style={{
+              margin: "0 0 18px",
+              fontSize: 15,
+              lineHeight: 1.6,
+              color: "rgba(255,255,255,0.78)",
+            }}
+          >
+            Joining the waitlist gets you launch updates, early access news, and first crack at Orlando when the app goes live.
+          </p>
+
+          <form
+            onSubmit={handleWaitlistSubmit}
+            style={{
+              display: "flex",
+              gap: 12,
+              flexWrap: "wrap",
+              alignItems: "center",
+            }}
+          >
+            <input
+              type="email"
+              value={waitlistEmail}
+              onChange={(event) => setWaitlistEmail(event.target.value)}
+              placeholder="Enter your email"
+              autoComplete="email"
+              aria-label="Email address"
+              style={{
+                flex: "1 1 280px",
+                minWidth: 0,
+                padding: "14px 16px",
+                borderRadius: 16,
+                border: "1px solid rgba(255,255,255,0.16)",
+                background: "rgba(7, 26, 45, 0.42)",
+                color: "white",
+                fontSize: 15,
+                outline: "none",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
+              }}
+            />
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: 168,
+                padding: "14px 20px",
+                borderRadius: 16,
+                border: "1px solid rgba(255,255,255,0.22)",
+                background:
+                  "linear-gradient(135deg, rgba(120,220,230,0.9) 0%, rgba(120,160,255,0.92) 100%)",
+                color: "#041525",
+                fontSize: 15,
+                fontWeight: 800,
+                letterSpacing: "0.01em",
+                cursor: isSubmitting ? "default" : "pointer",
+                opacity: isSubmitting ? 0.75 : 1,
+                boxShadow: "0 14px 30px rgba(64, 146, 255, 0.28)",
+              }}
+            >
+              {isSubmitting ? "Joining..." : "Join Waitlist"}
+            </button>
+          </form>
+
+          <p
+            style={{
+              minHeight: 22,
+              margin: "12px 0 0",
+              fontSize: 14,
+              color:
+                waitlistMessageType === "error"
+                  ? "rgba(255, 176, 176, 0.96)"
+                  : "rgba(188, 255, 214, 0.96)",
+            }}
+          >
+            {waitlistMessage || "No spam. Just the good stuff."}
+          </p>
         </div>
 
         <div
