@@ -132,7 +132,7 @@ export default function WaitlistPage() {
             textTransform: "uppercase",
           }}
         >
-          Orlando early access
+          Launch Waitlist
         </div>
 
         <h1
@@ -156,7 +156,7 @@ export default function WaitlistPage() {
             color: "rgba(255,255,255,0.78)",
           }}
         >
-          Be first to know when Simple Date launches in Orlando. Drop your email below and we’ll keep you in the loop.
+          Be first to know when Simple Date launches in your city. Drop your email below and we’ll keep you in the loop.
         </p>
 
         <div
