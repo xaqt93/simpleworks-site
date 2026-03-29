@@ -14,30 +14,14 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-let firestoreDbPromise: Promise<any> | null = null;
+function getMissingFirebaseConfig() {
+  return Object.entries(firebaseConfig)
+    .filter(([, value]) => !value)
+    .map(([key]) => key);
+}
 
-async function getFirestoreDb() {
-  if (!firestoreDbPromise) {
-    firestoreDbPromise = (async () => {
-      const [{ initializeApp, getApps }, { getFirestore }] = await Promise.all([
-        import("firebase/app"),
-        import("firebase/firestore"),
-      ]);
-
-      const missingConfig = Object.entries(firebaseConfig)
-        .filter(([, value]) => !value)
-        .map(([key]) => key);
-
-      if (missingConfig.length > 0) {
-        throw new Error(`Missing Firebase config: ${missingConfig.join(", ")}`);
-      }
-
-      const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
-      return getFirestore(app);
-    })();
-  }
-
-  return firestoreDbPromise;
+function createWaitlistDocumentId(email: string) {
+  return email.toLowerCase().replace(/[^a-z0-9]/g, "_");
 }
 
 function formatTimeLeft() {
@@ -106,28 +90,36 @@ export default function Home() {
       setWaitlistMessage("");
       setWaitlistMessageType("idle");
 
-      const db = await getFirestoreDb();
-      const { addDoc, collection, query, where, getDocs, serverTimestamp } =
-        await import("firebase/firestore");
+      const missingConfig = getMissingFirebaseConfig();
 
-      const waitlistRef = collection(db, "waitlist");
-      const existingEmailQuery = query(waitlistRef, where("email", "==", email));
-      const existingEmailSnapshot = await getDocs(existingEmailQuery);
-
-      if (!existingEmailSnapshot.empty) {
-        setWaitlistMessage("You’re already on the waitlist 💌");
-        setWaitlistMessageType("success");
-        return;
+      if (missingConfig.length > 0) {
+        throw new Error(`Missing Firebase config: ${missingConfig.join(", ")}`);
       }
 
-      await addDoc(waitlistRef, {
-        email,
-        createdAt: serverTimestamp(),
-        source: "website",
+      const documentId = createWaitlistDocumentId(email);
+      const endpoint = `https://firestore.googleapis.com/v1/projects/${firebaseConfig.projectId}/databases/(default)/documents/waitlist/${documentId}?key=${firebaseConfig.apiKey}`;
+
+      const response = await fetch(endpoint, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fields: {
+            email: { stringValue: email },
+            source: { stringValue: "website" },
+            createdAt: { stringValue: new Date().toISOString() },
+          },
+        }),
       });
 
-      setWaitlistEmail("");
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || "Failed to save waitlist entry.");
+      }
+
       setWaitlistMessage("You’re on the waitlist 🎉");
+      setWaitlistEmail("");
       setWaitlistMessageType("success");
     } catch (error) {
       console.error("Failed to join waitlist:", error);
