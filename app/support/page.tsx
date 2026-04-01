@@ -145,169 +145,91 @@ export default function Home() {
       }}
     >
       <div style={{ maxWidth: 720 }}>
-        <div
-          style={{
-            width: 96,
-            height: 96,
-            borderRadius: 24,
-            margin: "0 auto 14px",
-            background: "rgba(255,255,255,0.12)",
-            border: "1px solid rgba(255,255,255,0.22)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0 20px 45px rgba(0,0,0,0.35)",
-          }}
-        >
-          <img
-              src="/simple-date-icon.png"
-              alt="Simple Date app icon"
-              style={{
-                width: 56,
-                height: 56,
-              borderRadius: 14,
-              }}
-/>
-        </div>
-
         <h1
           style={{
-            fontSize: "clamp(44px, 6vw, 64px)",
+            fontSize: "clamp(40px, 5vw, 56px)",
             margin: 0,
             fontWeight: 800,
             letterSpacing: "-0.02em",
           }}
         >
-          Simple Date
+          Support
         </h1>
 
         <p
           style={{
             marginTop: 12,
-            marginBottom: 18,
+            marginBottom: 24,
             fontSize: "clamp(16px, 2.2vw, 20px)",
             color: "rgba(255,255,255,0.8)",
             lineHeight: 1.5,
           }}
         >
-          Because dating should feel human again.
+          Need help with Simple Date? You’re in the right place.
         </p>
 
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            padding: "10px 16px",
-            borderRadius: 999,
-            marginBottom: 12,
-            background: "rgba(255,255,255,0.12)",
-            border: "1px solid rgba(255,255,255,0.2)",
-            color: "rgba(255,255,255,0.88)",
-            fontSize: 14,
-            fontWeight: 600,
-            letterSpacing: "0.01em",
-          }}
-        >
-          Launching in Orlando, FL
-        </div>
-
-        <div
-          style={{
-            margin: "0 auto 32px",
-            padding: "18px 16px",
-            maxWidth: 560,
-            borderRadius: 22,
-            background: "rgba(255,255,255,0.1)",
-            border: "1px solid rgba(255,255,255,0.18)",
-            boxShadow: "0 18px 40px rgba(0,0,0,0.24)",
-            backdropFilter: "blur(10px)",
-          }}
-        >
-          <p
-            style={{
-              margin: "0 0 18px",
-              fontSize: 14,
-              fontWeight: 700,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.68)",
-            }}
-          >
-            April 25, 2026
+        <div style={{ textAlign: "left", marginTop: 24 }}>
+          <h2 style={sectionHeaderStyle}>Contact Support</h2>
+          <p style={textStyle}>
+            For any questions, issues, or account concerns, email us at:
           </p>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, minmax(70px, 1fr))",
-              gap: 12,
-            }}
-          >
-            {[
-              { label: "Days", value: timeLeft.days },
-              { label: "Hours", value: timeLeft.hours },
-              { label: "Minutes", value: timeLeft.minutes },
-              { label: "Seconds", value: timeLeft.seconds },
-            ].map((item) => (
-              <div
-                key={item.label}
-                style={{
-                  padding: "14px 8px",
-                  borderRadius: 22,
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.12)",
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "clamp(24px, 4vw, 34px)",
-                    fontWeight: 800,
-                    letterSpacing: "-0.03em",
-                  }}
-                >
-                  {item.value}
-                </div>
-                <div
-                  style={{
-                    marginTop: 6,
-                    fontSize: 12,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    color: "rgba(255,255,255,0.62)",
-                  }}
-                >
-                  {item.label}
-                </div>
-              </div>
-            ))}
-          </div>
+          <p style={{ ...textStyle, fontWeight: 600 }}>
+            support@simpleworks.app
+          </p>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            gap: 12,
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          <Link
-            href="/cities"
-            style={{
-              ...pillStyle,
-              background: "rgba(255,255,255,0.28)",
-              border: "1px solid rgba(255,255,255,0.4)",
-            }}
-          >
-            Available Cities
-          </Link>
-          <Link href="/howitworks" style={pillStyle}>
-            How it works
-          </Link>
-          <Link href="/waitlist" style={pillStyle}>
-            Join Waitlist
-          </Link>
+        <div style={{ textAlign: "left", marginTop: 32 }}>
+          <h2 style={sectionHeaderStyle}>Frequently Asked Questions</h2>
+
+          {[
+            {
+              q: "How does Simple Date work?",
+              a: "Simple Date removes swiping. You’re matched automatically based on preferences and availability, and the app helps set up a real date for you.",
+            },
+            {
+              q: "Why don’t I see profiles or photos?",
+              a: "Simple Date is designed to focus on real connections instead of appearances. Matches are based on compatibility, not swiping.",
+            },
+            {
+              q: "What happens after I get matched?",
+              a: "Once both users confirm, the app helps coordinate a date at a selected location and time. After the date, you can choose whether to continue.",
+            },
+            {
+              q: "Is my personal information visible to others?",
+              a: "No. Sensitive details like your phone number and email are never shown to other users.",
+            },
+            {
+              q: "What if someone doesn’t show up?",
+              a: "No-shows are tracked. Users who repeatedly miss dates may be restricted or removed to keep the experience fair.",
+            },
+            {
+              q: "How do I delete my account?",
+              a: "You can delete your account in the app settings or contact support and we’ll take care of it for you.",
+            },
+            {
+              q: "Is Simple Date safe?",
+              a: "We prioritize safety with reporting tools, moderation, and user feedback systems. However, always use your best judgment when meeting someone new.",
+            },
+            {
+              q: "Do you run background checks?",
+              a: "No. We do not perform background checks. Users are responsible for their own safety and awareness.",
+            },
+          ].map((item) => (
+            <div key={item.q} style={{ marginBottom: 20 }}>
+              <p style={{ ...textStyle, fontWeight: 700 }}>{item.q}</p>
+              <p style={textStyle}>{item.a}</p>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ textAlign: "left", marginTop: 32 }}>
+          <h2 style={sectionHeaderStyle}>Safety Tips</h2>
+          <ul style={{ ...textStyle, paddingLeft: 20 }}>
+            <li>Meet in public places.</li>
+            <li>Tell a friend where you’re going.</li>
+            <li>Arrange your own transportation.</li>
+            <li>Trust your instincts—leave if something feels off.</li>
+          </ul>
         </div>
 
         <div
@@ -318,15 +240,8 @@ export default function Home() {
             justifyContent: "center",
           }}
         >
-          <Link href="/privacy" style={footerLinkStyle}>
-            Privacy
-          </Link>
-          <Link href="/user-agreement" style={footerLinkStyle}>
-            User Agreement
-          </Link>
-          <Link href="/support" style={footerLinkStyle}>
-            Support
-          </Link>
+          <Link href="/privacy" style={footerLinkStyle}>Privacy</Link>
+          <Link href="/user-agreement" style={footerLinkStyle}>User Agreement</Link>
         </div>
       </div>
     </main>
@@ -352,4 +267,16 @@ const footerLinkStyle: React.CSSProperties = {
   textDecoration: "none",
   fontSize: 14,
   fontWeight: 500,
+};
+
+const sectionHeaderStyle: React.CSSProperties = {
+  fontSize: 20,
+  fontWeight: 700,
+  marginBottom: 8,
+};
+
+const textStyle: React.CSSProperties = {
+  fontSize: 14,
+  color: "rgba(255,255,255,0.75)",
+  lineHeight: 1.6,
 };
