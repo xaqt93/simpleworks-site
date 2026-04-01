@@ -145,6 +145,11 @@ export default function Home() {
       }}
     >
       <div style={{ maxWidth: 720 }}>
+        <div style={{ textAlign: "left", marginBottom: 16 }}>
+          <Link href="/" style={footerLinkStyle}>
+            ← Back
+          </Link>
+        </div>
         <h1
           style={{
             fontSize: "clamp(40px, 5vw, 56px)",
