@@ -15,228 +15,298 @@ export default function PrivacyPage() {
         <div style={contentStyle}>
           <h2 style={h2Style}>1. Who We Are</h2>
           <p>
-            The Simple Date mobile application and associated websites
-            (collectively the “Service”) are operated by Simple Works and Applications, LLC. We are
-            responsible for the collection, storage and processing of personal
-            information through the Service. If you have questions, contact support
-            at{" "}
-            <a href="mailto:support@simplework.app" style={linkStyle}>
-              support@simplework.app
-            </a>
-            .
+            Simple Works and Applications, LLC operates the Simple Date mobile
+            application and associated websites (collectively, the “Service”). We
+            are responsible for the collection, storage and processing of personal
+            information through the Service. If you have questions about this
+            policy or wish to exercise any of the rights described below, please
+            contact us at support@simplework.app.
           </p>
 
           <h2 style={h2Style}>2. Information We Collect</h2>
-          <p>We collect the following information when you register and use the Service:</p>
+          <p>
+            We collect and process the following information when you register and
+            use the Service:
+          </p>
           <ul style={listStyle}>
             <li>
-              <strong>Account Information:</strong> Legal first and last name, email
-              address, phone number and ZIP code. This information helps enhance the
-              app and verify users.
+              <strong>Account Information:</strong> We ask for your legal first and
+              last name, email address, phone number and ZIP code when you create
+              an account. This information allows us to create your account and
+              helps us maintain a safe environment. We do not independently verify
+              the accuracy of this information; it is provided by you for account
+              confirmation purposes only. Your legal name, phone number and ZIP
+              code are not displayed to other users. We use them internally for
+              safety, legal and administrative reasons and do not share them with
+              other users.
             </li>
             <li>
-              <strong>Profile Information:</strong> Details you choose to share,
-              including photographs and descriptions. We encourage you not to include
-              personal contact information in your profile.
+              <strong>Profile Information:</strong> You may choose to add details
+              to your profile, including photographs and personal descriptions. We
+              encourage you not to include personal contact information (for
+              example, phone numbers, email addresses, social media handles or
+              addresses) in your profile. Profile information you make public will
+              be visible to other users.
             </li>
             <li>
-              <strong>Device Information:</strong> We collect device information
-              (device identifier, model and operating system) and may collect
-              location data if you enable location services to facilitate matching.
+              <strong>Device and Location Information:</strong> We collect basic
+              device information (such as device identifier, model and operating
+              system) to improve the Service and prevent fraud. If you enable
+              location services, we may collect location data to help pair you with
+              potential matches near you. You can disable location permissions at
+              any time in your device settings.
             </li>
             <li>
               <strong>Usage Information:</strong> We collect data about how you use
-              the Service, including messages (to identify trends and improve user
-              experience), interactions with other users, feedback after dates and
-              reasons for canceling or declining matches.
+              the Service, such as your interactions with other users, messages (to
+              detect trends and improve user experience), feedback after dates, and
+              reasons for cancelling or declining matches. This helps us operate
+              and improve the Service and maintain a safe environment.
             </li>
             <li>
               <strong>Cookies and Tracking Technologies:</strong> We use cookies and
-              similar technologies to recognize and remember you.
+              similar technologies to recognize you, remember your preferences, and
+              analyze how the Service is used. You can manage cookie preferences
+              through your browser settings.
             </li>
           </ul>
 
           <h2 style={h2Style}>3. How We Use Your Information</h2>
           <p>We use your information to:</p>
           <ol style={listStyle}>
-            <li>Provide our services and features.</li>
-            <li>Verify users and maintain a safe environment.</li>
+            <li>Provide and operate the Service and its features;</li>
             <li>
-              Improve the app by analyzing user behavior, including reasons for
-              canceling dates.
+              Maintain a safe environment (for example, to detect spam, fraud or
+              other harmful activity);
             </li>
-            <li>Contact you with information about updates or changes.</li>
-            <li>Investigate fraud, enforce our Terms, and protect our legal rights.</li>
+            <li>
+              Analyze usage patterns and improve the app, including understanding
+              why users cancel or decline matches;
+            </li>
+            <li>
+              Contact you with information about the Service (e.g., updates or
+              changes) and respond to your requests;
+            </li>
+            <li>
+              Enforce our Terms of Service, investigate fraud and protect our legal
+              rights;
+            </li>
             <li>
               Send you promotional content if you opt-in (you may opt out at any
               time).
             </li>
           </ol>
+          <p>
+            We do not sell your personal information. We do not share your account
+            or profile information with other users unless you choose to disclose
+            it in your profile or messages.
+          </p>
 
           <h2 style={h2Style}>4. Legal Basis for Processing</h2>
           <p>
-            We process your data based on your consent (e.g., when you provide
-            information), our legitimate interests (e.g., improving safety and
-            preventing fraud), and to perform the contract between you and Simple
-            Works and Applications.
+            Our legal bases for processing personal data include your consent (for
+            example, when you provide information or opt into marketing), our
+            legitimate interests (such as maintaining safety, preventing fraud and
+            improving our service) and the performance of the contract between you
+            and Simple Works and Applications when you use the Service.
           </p>
 
           <h2 style={h2Style}>5. Disclosure of Information</h2>
-          <p>
-            We do not sell your personal data. We disclose personal information only
-            in limited circumstances:
-          </p>
+          <p>We may disclose personal information only in limited circumstances:</p>
           <ul style={listStyle}>
             <li>
-              <strong>Service Providers:</strong> We share data with service
-              providers (e.g., hosting or payment processors) to help deliver our
-              services.
+              <strong>Service Providers:</strong> We share data with trusted service
+              providers who perform functions on our behalf (such as hosting,
+              analytics or payment processing). They are contractually required to
+              protect your information.
             </li>
             <li>
               <strong>Compliance and Safety:</strong> We may disclose information if
-              required by law or to enforce our Terms or protect the safety of users.
+              required by law or to enforce our Terms of Service or protect the
+              safety of users. This may include providing information to law
+              enforcement where legally required.
             </li>
             <li>
-              <strong>Payment disputes:</strong> We may provide necessary information
-              to process payments and resolve disputes.
+              <strong>Payment Disputes:</strong> We may provide necessary
+              information to process payments and resolve disputes.
             </li>
             <li>
-              <strong>Merger or acquisition:</strong> If Simple Works and Applications is involved in
-              a merger or sale, we will notify you before transferring personal data.
+              <strong>Business Transfers:</strong> If Simple Works and Applications,
+              LLC undergoes a merger, acquisition or sale of all or part of our
+              business, we will notify you before transferring your personal data.
             </li>
           </ul>
+          <p>
+            We do not otherwise share your personal information with third parties,
+            and we do not sell your personal data.
+          </p>
 
           <h2 style={h2Style}>6. Data Retention and Deletion</h2>
           <p>
-            We keep personal information only as long as needed for the purposes
-            described above and as permitted by law. When your account is deleted, it
-            is removed from public view. We may retain certain data:
+            We retain personal information only as long as reasonably necessary to
+            provide the Service and fulfil the purposes described above, in
+            accordance with applicable law. When your account is deleted, your
+            profile is removed from public view. We may retain certain data:
           </p>
           <ol style={listStyle}>
-            <li>For legal compliance (e.g., tax or accounting records).</li>
             <li>
-              To evidence compliance with applicable law (e.g., details of accounts
-              that were blocked).
+              To comply with legal obligations (for example, to meet tax or
+              accounting requirements);
             </li>
-            <li>To resolve disputes.</li>
             <li>
-              For legitimate business interests such as fraud prevention and
-              enhancing safety — for example, to prevent a banned user from creating
-              another account.
+              To demonstrate compliance with applicable laws (e.g., records of
+              blocked accounts);
+            </li>
+            <li>To resolve disputes; and</li>
+            <li>
+              For legitimate business interests such as preventing fraud or
+              enhancing safety—e.g., to prevent a banned user from creating another
+              account.
             </li>
           </ol>
           <p>
-            When we no longer need your data for these purposes, we will delete it
-            securely. Please note that information you share with others may still be
-            accessible because we cannot control the actions of other users or
-            third-party services.
+            When we no longer need your data for these purposes, we will securely
+            delete it. Please note that any information you have shared with other
+            users may still be accessible by those users or third-party services
+            beyond our control.
           </p>
 
-          <h2 style={h2Style}>7. Your Rights</h2>
+          <h2 style={h2Style}>7. Your Privacy Rights</h2>
+          <p>
+            We respect the privacy rights provided under state laws and voluntarily
+            extend the following rights to all U.S. residents, regardless of where
+            they live:
+          </p>
           <ul style={listStyle}>
             <li>
-              <strong>Access and deletion:</strong> You may request access to the
-              personal information we hold about you and request deletion, subject to
-              certain exceptions.
+              <strong>Right to Know and Access:</strong> You may request
+              confirmation of whether we process your personal data and obtain
+              access to that data.
             </li>
             <li>
-              <strong>Opt-out of marketing:</strong> You may opt out of marketing
-              communications at any time.
+              <strong>Right to Correct:</strong> You may request that we correct
+              inaccurate personal information we hold about you.
             </li>
             <li>
-              <strong>Do not track:</strong> We do not track users across third-party
-              services and do not knowingly permit third parties to collect personal
-              information about users’ online activities.
+              <strong>Right to Delete:</strong> You may request deletion of
+              personal information you provided or that we have obtained about you,
+              subject to certain exceptions (for example, where we are legally
+              required to retain data). Many state laws grant residents the right
+              to request access to and deletion of personal data.
             </li>
             <li>
-              <strong>California residents:</strong> You have additional rights under
-              the California Consumer Privacy Act, including rights to know what
-              personal information we collect and to request deletion.
+              <strong>Right to Portability:</strong> You may request a copy of your
+              personal data in a portable and, where technically feasible, readily
+              usable format.
+            </li>
+            <li>
+              <strong>Right to Opt Out:</strong> You may opt out of targeted
+              advertising, the sale of your personal data, profiling or automated
+              decision-making that produces legal or similarly significant effects.
+              Several states, including Kentucky and Rhode Island, provide
+              residents with opt-out rights for data sales and targeted
+              advertising.
+            </li>
+            <li>
+              <strong>Additional Rights for Minors:</strong> Some states have
+              increased protections for minors’ data, including restrictions on
+              selling personal data of users under 16. Although Simple Date
+              prohibits users under 18, we will honour any state-specific
+              requirements if we become aware of a minor’s information.
             </li>
           </ul>
 
+          <h2 style={h2Style}>Florida Residents</h2>
+          <p>
+            Under the Florida Digital Bill of Rights (FDBR), Florida residents have
+            specific rights, such as the rights to know, access, correct, delete
+            and port personal data and to opt out of data sales, targeted
+            advertising, profiling and voice or facial recognition technologies. We
+            voluntarily offer these rights to all Florida residents and describe
+            them above.
+          </p>
+
+          <h2 style={h2Style}>California Residents</h2>
+          <p>
+            Under the California Consumer Privacy Act (CCPA/CPRA), California
+            residents have rights similar to those listed above, including the
+            right to know, delete and correct personal information and to opt out
+            of the sale or sharing of personal information. We do not sell
+            personal information, but California residents may submit a request
+            through the contact information below if they wish to exercise any of
+            these rights. We honour the Delete Act, which requires data brokers to
+            comply with a centralized deletion request beginning August 1 2026.
+          </p>
+
+          <h2 style={h2Style}>Other State Privacy Laws</h2>
+          <p>
+            Multiple other states, including Colorado, Connecticut, Indiana, Iowa,
+            Kentucky, Montana, Nebraska, New Hampshire, New Jersey, Oregon, Rhode
+            Island, Utah, Virginia, Texas and Arkansas, have enacted privacy laws
+            that grant residents rights to access, correct, delete and port
+            personal data and to opt out of targeted advertising or data sales.
+            Many of these laws also require businesses to honour universal opt-out
+            signals or impose restrictions on selling geolocation data or personal
+            data of minors. We voluntarily extend these rights to residents of all
+            states. If you reside in a state with a comprehensive privacy law that
+            provides additional or different rights, we will comply with that law.
+          </p>
+
+          <p>
+            To exercise any of these rights, please email{" "}
+            <a href="mailto:legal@simpleworks.app" style={linkStyle}>
+              legal@simpleworks.app
+            </a>{" "}
+            with the subject line “Privacy Request.” We will authenticate your
+            request and respond within the time period required by applicable law
+            (generally within 45 days, with the possibility of a reasonable
+            extension). We will not discriminate against you for exercising your
+            privacy rights.
+          </p>
+
           <h2 style={h2Style}>8. Security</h2>
           <p>
-            We take reasonable security measures to protect your information from
-            unauthorized access, loss or misuse. However, no internet transmission is
-            completely secure. We recommend that you log out after use, keep your
-            password confidential, and update it periodically.
+            We implement reasonable technical and organizational measures to
+            protect your information from unauthorized access, loss or misuse.
+            However, no method of transmission or storage is completely secure.
+            You should use a strong, unique password and keep it confidential. We
+            recommend logging out of your account after use.
           </p>
 
           <h2 style={h2Style}>9. Children’s Privacy</h2>
           <p>
-            We do not knowingly collect personal information from anyone under 18
-            years of age. If we become aware that a minor has registered, we will
-            delete the account and associated information.
+            The Service is intended for users aged 18 and over. We do not
+            knowingly collect personal information from anyone under 18 years of
+            age. If we learn that a minor has registered, we will delete the
+            account and associated information.
           </p>
 
           <h2 style={h2Style}>10. International Transfers</h2>
           <p>
-            Our services are operated in the United States. Your information may be
-            transferred and stored outside of your home country. We implement
-            appropriate safeguards to protect your data during such transfers.
+            We operate in the United States. Your information may be transferred
+            to, stored and processed in the United States or other countries. We
+            implement appropriate safeguards (such as contractual clauses) to
+            protect your data during these transfers.
           </p>
 
           <h2 style={h2Style}>11. Changes to This Privacy Policy</h2>
           <p>
             We may update this Privacy Policy from time to time. The most current
-            version will always be available in the app or on our website, and we
-            will notify you of material changes.
+            version will always be available in the app or on our website. If we
+            make material changes, we will notify you through the Service or by
+            other appropriate means.
           </p>
 
-          <h2 style={h2Style}>12. Florida Residents: Additional Rights and Information</h2>
+          <h2 style={h2Style}>12. Contact Us</h2>
           <p>
-            The Florida Digital Bill of Rights (FDBR) provides certain rights to
-            Florida residents with respect to the processing of personal data.
-            Although the FDBR applies primarily to very large businesses, Simple Date
-            voluntarily extends the following rights to Florida residents:
+            If you have any questions, concerns or requests regarding this policy
+            or your personal data, please contact us at:
           </p>
-          <ol style={listStyle}>
-            <li>
-              <strong>Right to know and access.</strong> You may request confirmation
-              of whether we are processing your personal data and obtain access to
-              that data.
-            </li>
-            <li>
-              <strong>Right to correct.</strong> You may request that we correct
-              inaccuracies in your personal data.
-            </li>
-            <li>
-              <strong>Right to delete.</strong> You may request deletion of personal
-              data provided by or obtained about you.
-            </li>
-            <li>
-              <strong>Right to portability.</strong> You may request a copy of your
-              personal data in a portable and, to the extent technically feasible,
-              readily usable format.
-            </li>
-            <li>
-              <strong>Right to opt out.</strong> You may opt out of (i) targeted
-              advertising, (ii) the sale of your personal data, (iii) profiling, or
-              (iv) the collection of personal data through voice or facial
-              recognition technologies.
-            </li>
-          </ol>
-
           <p>
-            To exercise any of these rights, please contact us at{" "}
-            <a href="mailto:legal@simplework.app" style={linkStyle}>
-              legal@simplework.app
-            </a>{" "}
-            with the subject line “Florida Privacy Request.” We will authenticate
-            your request and respond within 45 days, with the possibility of a
-            15-day extension if reasonably necessary. We will not discriminate
-            against you for exercising these rights. We may decline a request to
-            correct information if we offer a self-service mechanism for correction,
-            as permitted by the FDBR.
-          </p>
-
-          <p>
-            We continue to limit data collection to what is reasonably necessary, to
-            provide clear privacy notices, and to maintain reasonable
-            administrative, technical and physical safeguards to protect your
-            information. We do not knowingly process data for children under 18 and
-            will delete such data if discovered.
+            Simple Works and Applications, LLC
+            <br />
+            Email: support@simplework.app (general inquiries) or legal@simpleworks.app
+            (privacy requests)
           </p>
         </div>
       </div>
