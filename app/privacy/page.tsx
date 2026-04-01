@@ -305,7 +305,7 @@ export default function PrivacyPage() {
           <p>
             Simple Works and Applications, LLC
             <br />
-            Email: support@simplework.app (general inquiries) or legal@simpleworks.app
+            Email: support@simplework.app for general inquiries or legal@simpleworks.app
             (privacy requests)
           </p>
         </div>
