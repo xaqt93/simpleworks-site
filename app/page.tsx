@@ -324,6 +324,9 @@ export default function Home() {
           <Link href="/user-agreement" style={footerLinkStyle}>
             User Agreement
           </Link>
+          <Link href="/support" style={footerLinkStyle}>
+            Support
+          </Link>
         </div>
       </div>
     </main>
