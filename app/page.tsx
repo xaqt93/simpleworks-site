@@ -22,22 +22,22 @@ export default function Home() {
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center",
-        padding: "40px 20px 72px",
+        padding: "24px 16px 56px",
         background:
           "radial-gradient(1200px 800px at 20% 20%, rgba(120, 220, 230, 0.55), transparent 55%), radial-gradient(900px 700px at 80% 35%, rgba(120, 160, 255, 0.45), transparent 55%), radial-gradient(900px 700px at 40% 85%, rgba(180, 120, 255, 0.28), transparent 60%), linear-gradient(180deg, #071a2d 0%, #071f33 40%, #081f35 100%)",
         color: "white",
         textAlign: "center",
       }}
     >
-      <div style={{ width: "100%", maxWidth: 980 }}>
+      <div style={{ width: "100%", maxWidth: 980, margin: "0 auto" }}>
         <section
           style={{
-            display: "grid",
-            gridTemplateColumns: "auto minmax(0, 1fr) auto",
-            gap: 22,
-            alignItems: "center",
+            display: "flex",
+            flexDirection: "column",
+            gap: 18,
+            alignItems: "stretch",
             marginBottom: 18,
-            textAlign: "left",
+            textAlign: "center",
           }}
         >
           <div
@@ -52,7 +52,8 @@ export default function Home() {
               justifyContent: "center",
               boxShadow: "0 20px 45px rgba(0,0,0,0.35)",
               overflow: "hidden",
-              flexShrink: 0,
+              margin: "0 auto",
+              maxWidth: "112px",
             }}
           >
             <img
@@ -66,7 +67,7 @@ export default function Home() {
             />
           </div>
 
-          <div>
+          <div style={{ textAlign: "center" }}>
             <div
               style={{
                 display: "inline-flex",
@@ -112,7 +113,8 @@ export default function Home() {
 
             <p
               style={{
-                margin: 0,
+                margin: "0 auto",
+                maxWidth: 560,
                 fontSize: 14,
                 color: "rgba(255,255,255,0.58)",
                 lineHeight: 1.5,
@@ -138,6 +140,7 @@ export default function Home() {
               boxShadow: "0 10px 24px rgba(0,0,0,0.22)",
               whiteSpace: "nowrap",
               cursor: "not-allowed",
+              margin: "0 auto",
             }}
           >
             Coming soon
@@ -159,6 +162,7 @@ export default function Home() {
               backdropFilter: "blur(10px)",
               textAlign: "left",
               marginBottom: 18,
+              overflow: "hidden",
             }}
           >
 
@@ -169,6 +173,7 @@ export default function Home() {
                 fontWeight: 600,
                 color: "rgba(255,255,255,0.9)",
                 lineHeight: 1.6,
+                wordBreak: "break-word",
               }}
             >
               No swiping. No profiles. Just real dates. We set it up—you just show up.
@@ -182,6 +187,7 @@ export default function Home() {
                 letterSpacing: "-0.03em",
                 lineHeight: 1.05,
                 maxWidth: 760,
+                wordBreak: "break-word",
               }}
             >
               Dating should feel human again.
@@ -236,6 +242,7 @@ export default function Home() {
                         fontSize: 14,
                         lineHeight: 1.5,
                         color: "rgba(255,255,255,0.8)",
+                        wordBreak: "break-word",
                       }}
                     >
                       {item}
@@ -327,13 +334,14 @@ export default function Home() {
                 paddingBottom: 6,
                 scrollSnapType: "x proximity",
                 WebkitOverflowScrolling: "touch",
+                width: "100%",
               }}
             >
               {appStoreShots.map((shot, index) => (
                 <div
                   key={shot}
                   style={{
-                    flex: "0 0 180px",
+                    flex: "0 0 min(180px, 70vw)",
                     borderRadius: 24,
                     padding: 8,
                     background: "rgba(255,255,255,0.08)",
@@ -367,6 +375,7 @@ export default function Home() {
             flexWrap: "wrap",
             maxWidth: 980,
             margin: "0",
+            width: "100%",
           }}
         >
           <Link href="/howitworks" style={pillStyle}>
@@ -387,6 +396,7 @@ export default function Home() {
             gap: 16,
             justifyContent: "center",
             flexWrap: "wrap",
+            paddingBottom: 8,
           }}
         >
           <Link href="/privacy" style={footerLinkStyle}>
@@ -414,7 +424,9 @@ const pillStyle: React.CSSProperties = {
   border: "1px solid rgba(255,255,255,0.22)",
   color: "white",
   textDecoration: "none",
-  minWidth: 180,
+  minWidth: "min(180px, 100%)",
+  width: "100%",
+  maxWidth: 260,
   fontWeight: 600,
   backdropFilter: "blur(8px)",
   boxShadow: "0 10px 24px rgba(0,0,0,0.2)",
