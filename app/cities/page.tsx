@@ -129,7 +129,6 @@ export default function CitiesPage() {
               key={group.season}
               style={{
                 ...timelineCardStyle,
-                ...(group.highlight ? highlightCardStyle : null),
               }}
             >
               <div style={timelineCardTopStyle}>
@@ -146,7 +145,6 @@ export default function CitiesPage() {
                     key={city}
                     style={{
                       ...cityChipStyle,
-                      ...(group.highlight ? highlightChipStyle : null),
                     }}
                   >
                     {city}
