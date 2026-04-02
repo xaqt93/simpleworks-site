@@ -122,27 +122,26 @@ export default function Home() {
             </p>
           </div>
 
-          <Link
-            href="https://apps.apple.com"
+          <div
             style={{
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
               padding: "13px 22px",
               borderRadius: 999,
-              background: "rgba(255,255,255,0.28)",
-              border: "1px solid rgba(255,255,255,0.42)",
-              color: "white",
-              textDecoration: "none",
+              background: "rgba(255,255,255,0.12)",
+              border: "1px solid rgba(255,255,255,0.25)",
+              color: "rgba(255,255,255,0.6)",
               fontWeight: 700,
               minWidth: 132,
               backdropFilter: "blur(10px)",
               boxShadow: "0 10px 24px rgba(0,0,0,0.22)",
               whiteSpace: "nowrap",
+              cursor: "not-allowed",
             }}
           >
-            Download
-          </Link>
+            Coming soon
+          </div>
         </section>
 
         <section
