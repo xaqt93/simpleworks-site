@@ -222,8 +222,31 @@ export default function WaitlistPage() {
           <Link href="/" style={pillStyle}>
             Back Home
           </Link>
+          <Link href="/cities" style={pillStyle}>
+            City Roadmap
+          </Link>
           <Link href="/howitworks" style={pillStyle}>
-            How it works
+            How it Works
+          </Link>
+        </div>
+
+        <div
+          style={{
+            marginTop: 34,
+            display: "flex",
+            gap: 16,
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <Link href="/privacy" style={footerLinkStyle}>
+            Privacy
+          </Link>
+          <Link href="/user-agreement" style={footerLinkStyle}>
+            User Agreement
+          </Link>
+          <Link href="/support" style={footerLinkStyle}>
+            Support
           </Link>
         </div>
       </div>
@@ -263,4 +286,12 @@ const primaryButtonStyle: React.CSSProperties = {
   cursor: "pointer",
   opacity: 1,
   boxShadow: "0 14px 30px rgba(64, 146, 255, 0.28)",
+};
+
+const footerLinkStyle: React.CSSProperties = {
+  color: "rgba(255,255,255,0.45)",
+  textDecoration: "none",
+  fontSize: 14,
+  fontWeight: 500,
+  letterSpacing: "0.01em",
 };

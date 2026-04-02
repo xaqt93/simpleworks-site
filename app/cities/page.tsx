@@ -3,15 +3,7 @@ import type { CSSProperties } from "react";
 
 const launchGroups = [
   {
-    season: "Launching April 25, 2026",
-    title: "Orlando goes first",
-    description:
-      "Simple Date is launching city by city on purpose — starting with Orlando, where the first real dates begin.",
-    highlight: true,
-    cities: ["Orlando, FL"],
-  },
-  {
-    season: "Summer 2026",
+    season: "June 4th, 2026",
     title: "Next up",
     description:
       "The first expansion wave is all about warm-weather cities, weekend energy, and getting more people off the apps and into real life.",
@@ -59,6 +51,36 @@ const launchGroups = [
       "Las Vegas, NV",
     ],
   },
+  {
+    season: "Summer 2027",
+    title: "SoCal Expansion",
+    description:
+      "Summer is the Golden Coast expansion. We are focusing on the remaining cities in SoCal and bringing Simple Date to the Golden Coast.",
+    cities: [
+      "Ladera Ranch, CA",
+      "Laguna Hills, CA",
+      "Lake Forest, CA",
+      "Rancho Santa Margarita, CA",
+      "San Juan Capistrano, CA",
+      "Laguna Niguel, CA",
+      "Aliso Viejo, CA",
+      "San Clemente, CA",
+      "Trabuco Canyon, CA",
+    ],
+  },
+  {
+    season: "Fall 2027",
+    title: "East Coast Expansion",
+    description:
+      "The next wave focuses on smaller but still high-energy East Coast cities around Florida and Georgia, bringing Simple Date into more connected regional markets.",
+    cities: [
+      "Savannah, GA",
+      "Jacksonville, FL",
+      "St. Petersburg, FL",
+      "Sarasota, FL",
+      "Gainesville, FL",
+    ],
+  },
 ];
 
 export default function CitiesPage() {
@@ -72,15 +94,6 @@ export default function CitiesPage() {
           <Link href="/" style={pillLinkStyle} aria-label="Back to home">
             ← Home
           </Link>
-
-          <div style={topRightStyle}>
-            <Link href="/howitworks" style={pillLinkStyle}>
-              How it works
-            </Link>
-            <Link href="/privacy" style={pillLinkStyle}>
-              Privacy
-            </Link>
-          </div>
         </div>
 
         <section style={heroStyle}>
@@ -94,18 +107,17 @@ export default function CitiesPage() {
         <section style={heroCardStyle}>
           <div style={heroCardTopStyle}>
             <div>
-              <p style={heroEyebrowStyle}>First launch city</p>
+              <p style={heroEyebrowStyle}>Now live</p>
               <h2 style={heroCardTitleStyle}>Orlando, FL</h2>
               <p style={heroCardTextStyle}>
-                April 25, 2026. That’s where Simple Date stops being an idea and becomes reality. 
+                Simple Date is now live in Orlando, Florida.
               </p>
             </div>
 
             <div style={launchBadgeWrapStyle}>
-              <div style={launchBadgeStyle}>April 25, 2026</div>
+              <div style={launchBadgeStyle}>Live</div>
               <div style={launchPulseStyle}>
                 <span style={pulseDotStyle} />
-                First launch wave
               </div>
             </div>
           </div>
@@ -145,26 +157,16 @@ export default function CitiesPage() {
           ))}
         </section>
 
-        <section style={bottomNoteWrapStyle}>
-          <div style={bottomNoteCardStyle}>
-            <h2 style={bottomNoteTitleStyle}>More cities are coming.</h2>
-            <p style={bottomNoteTextStyle}>
-              We’re rolling this out in waves so the experience stays intentional, polished, and worth the wait.
-            </p>
-            <div style={bottomButtonsStyle}>
-              <Link href="/" style={ctaButtonStyle}>
-                Back Home
-              </Link>
-              <Link href="/howitworks" style={ctaButtonGhostStyle}>
-                How it works
-              </Link>
-            </div>
-          </div>
-        </section>
-
         <footer style={footerStyle}>
-          <span style={{ opacity: 0.9 }}>© {new Date().getFullYear()} Simple Date</span>
-          <span style={{ opacity: 0.7 }}>Built to feel human.</span>
+          <Link href="/privacy" style={footerLinkStyle}>
+            Privacy
+          </Link>
+          <Link href="/user-agreement" style={footerLinkStyle}>
+            User Agreement
+          </Link>
+          <Link href="/support" style={footerLinkStyle}>
+            Support
+          </Link>
         </footer>
       </div>
     </main>
@@ -217,12 +219,6 @@ const topRowStyle: CSSProperties = {
   maxWidth: 1080,
   margin: "0 auto",
   gap: 12,
-  flexWrap: "wrap",
-};
-
-const topRightStyle: CSSProperties = {
-  display: "flex",
-  gap: 10,
   flexWrap: "wrap",
 };
 
@@ -447,66 +443,19 @@ const highlightChipStyle: CSSProperties = {
   border: "1px solid rgba(255,255,255,0.24)",
 };
 
-const bottomNoteWrapStyle: CSSProperties = {
-  maxWidth: 1080,
-  margin: "18px auto 0",
-};
-
-const bottomNoteCardStyle: CSSProperties = {
-  borderRadius: 28,
-  padding: "22px 20px",
-  border: "1px solid rgba(255,255,255,0.16)",
-  background: "linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06))",
-  backdropFilter: "blur(16px)",
-  WebkitBackdropFilter: "blur(16px)",
-  boxShadow: "0 16px 46px rgba(0,0,0,0.22)",
-};
-
-const bottomNoteTitleStyle: CSSProperties = {
-  margin: 0,
-  fontSize: 24,
-  letterSpacing: -0.4,
-};
-
-const bottomNoteTextStyle: CSSProperties = {
-  margin: "8px 0 16px",
-  fontSize: 15,
-  opacity: 0.88,
-  lineHeight: 1.65,
-  maxWidth: 680,
-};
-
-const bottomButtonsStyle: CSSProperties = {
-  display: "flex",
-  gap: 10,
-  flexWrap: "wrap",
-};
-
-const ctaButtonStyle: CSSProperties = {
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: "12px 14px",
-  borderRadius: 14,
-  border: "1px solid rgba(255,255,255,0.18)",
-  background: "rgba(255,255,255,0.14)",
-  color: "rgba(255,255,255,0.92)",
-  textDecoration: "none",
-  fontWeight: 700,
-};
-
-const ctaButtonGhostStyle: CSSProperties = {
-  ...ctaButtonStyle,
-  background: "rgba(255,255,255,0.08)",
-};
-
 const footerStyle: CSSProperties = {
   maxWidth: 1080,
-  margin: "18px auto 0",
+  margin: "34px auto 0",
   display: "flex",
-  justifyContent: "space-between",
-  gap: 12,
+  justifyContent: "center",
+  gap: 16,
   flexWrap: "wrap",
-  fontSize: 13,
-  opacity: 0.85,
+};
+
+const footerLinkStyle: CSSProperties = {
+  color: "rgba(255,255,255,0.45)",
+  textDecoration: "none",
+  fontSize: 14,
+  fontWeight: 500,
+  letterSpacing: "0.01em",
 };

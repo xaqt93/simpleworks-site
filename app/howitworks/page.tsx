@@ -1,5 +1,3 @@
-
-
 import Link from "next/link";
 import type { CSSProperties } from "react";
 
@@ -11,12 +9,6 @@ export default function HowItWorksPage() {
         <Link href="/" style={pillLinkStyle} aria-label="Back to home">
           ← Home
         </Link>
-
-        <div style={topRightStyle}>
-          <Link href="/privacy" style={pillLinkStyle}>
-            Privacy
-          </Link>
-        </div>
       </div>
 
       {/* Hero */}
@@ -153,29 +145,16 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section style={ctaWrapStyle}>
-        <div style={ctaCardStyle}>
-          <h2 style={ctaTitleStyle}>Coming soon.</h2>
-          <p style={ctaTextStyle}>
-            We’re building this carefully — safety, simplicity, and trust first.
-          </p>
-          <div style={ctaButtonsStyle}>
-            <Link href="/" style={ctaButtonStyle}>
-              Back to Home
-            </Link>
-            <Link href="/privacy" style={ctaButtonGhostStyle}>
-              Read Privacy
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <footer style={footerStyle}>
-        <span style={{ opacity: 0.9 }}>© {new Date().getFullYear()} Simple Date</span>
-        <span style={{ opacity: 0.7 }}>
-          Built to feel human.
-        </span>
+        <Link href="/privacy" style={footerLinkStyle}>
+          Privacy
+        </Link>
+        <Link href="/user-agreement" style={footerLinkStyle}>
+          User Agreement
+        </Link>
+        <Link href="/support" style={footerLinkStyle}>
+          Support
+        </Link>
       </footer>
     </main>
   );
@@ -225,10 +204,6 @@ const topRowStyle: CSSProperties = {
   margin: "0 auto",
 };
 
-const topRightStyle: CSSProperties = {
-  display: "flex",
-  gap: 10,
-};
 
 const pillLinkStyle: CSSProperties = {
   display: "inline-flex",
@@ -405,66 +380,20 @@ const finePrintStyle: CSSProperties = {
   opacity: 0.75,
 };
 
-const ctaWrapStyle: CSSProperties = {
-  maxWidth: 980,
-  margin: "10px auto 0",
-  padding: "0 18px",
-};
-
-const ctaCardStyle: CSSProperties = {
-  borderRadius: 26,
-  padding: "20px 18px",
-  border: "1px solid rgba(255,255,255,0.16)",
-  background: "linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06))",
-  backdropFilter: "blur(16px)",
-  WebkitBackdropFilter: "blur(16px)",
-  boxShadow: "0 16px 46px rgba(0,0,0,0.22)",
-};
-
-const ctaTitleStyle: CSSProperties = {
-  margin: 0,
-  fontSize: 20,
-  letterSpacing: -0.2,
-};
-
-const ctaTextStyle: CSSProperties = {
-  margin: "6px 0 14px",
-  fontSize: 14.5,
-  opacity: 0.88,
-  lineHeight: 1.6,
-};
-
-const ctaButtonsStyle: CSSProperties = {
-  display: "flex",
-  gap: 10,
-  flexWrap: "wrap",
-};
-
-const ctaButtonStyle: CSSProperties = {
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: "12px 14px",
-  borderRadius: 14,
-  border: "1px solid rgba(255,255,255,0.18)",
-  background: "rgba(255,255,255,0.14)",
-  color: "rgba(255,255,255,0.92)",
-  textDecoration: "none",
-  fontWeight: 700,
-};
-
-const ctaButtonGhostStyle: CSSProperties = {
-  ...ctaButtonStyle,
-  background: "rgba(255,255,255,0.08)",
-};
-
 const footerStyle: CSSProperties = {
   maxWidth: 980,
-  margin: "18px auto 0",
+  margin: "34px auto 0",
   padding: "0 18px",
   display: "flex",
-  justifyContent: "space-between",
-  gap: 12,
+  justifyContent: "center",
+  gap: 16,
   flexWrap: "wrap",
-  fontSize: 13,
+};
+
+const footerLinkStyle: CSSProperties = {
+  color: "rgba(255,255,255,0.45)",
+  textDecoration: "none",
+  fontSize: 14,
+  fontWeight: 500,
+  letterSpacing: "0.01em",
 };
