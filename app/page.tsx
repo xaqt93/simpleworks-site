@@ -161,18 +161,6 @@ export default function Home() {
               marginBottom: 18,
             }}
           >
-            <p
-              style={{
-                margin: "0 0 10px",
-                fontSize: 13,
-                fontWeight: 700,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.68)",
-              }}
-            >
-              App Description
-            </p>
 
             <p
               style={{
@@ -327,18 +315,6 @@ export default function Home() {
               }}
             >
               <div>
-                <p
-                  style={{
-                    margin: "0 0 6px",
-                    fontSize: 13,
-                    fontWeight: 700,
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.62)",
-                  }}
-                >
-                  Screenshots
-                </p>
               </div>
             </div>
 
