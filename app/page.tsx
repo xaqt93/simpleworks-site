@@ -101,11 +101,12 @@ export default function Home() {
 
             <p
               style={{
-                margin: "0 0 8px",
+                margin: "0 auto 8px",
                 fontSize: "clamp(17px, 2.2vw, 22px)",
                 color: "rgba(255,255,255,0.84)",
                 lineHeight: 1.45,
                 maxWidth: 560,
+                textAlign: "center",
               }}
             >
               Because dating should feel human again.
