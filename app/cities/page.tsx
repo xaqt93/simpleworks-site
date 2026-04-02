@@ -107,15 +107,15 @@ export default function CitiesPage() {
         <section style={heroCardStyle}>
           <div style={heroCardTopStyle}>
             <div>
-              <p style={heroEyebrowStyle}>Now live</p>
+              <p style={heroEyebrowStyle}>Coming April 25th</p>
               <h2 style={heroCardTitleStyle}>Orlando, FL</h2>
               <p style={heroCardTextStyle}>
-                Simple Date is now live in Orlando, Florida.
+                Coming April 25th to Orlando, Florida.
               </p>
             </div>
 
             <div style={launchBadgeWrapStyle}>
-              <div style={launchBadgeStyle}>Live</div>
+              <div style={launchBadgeStyle}>Coming Soon</div>
               <div style={launchPulseStyle}>
                 <span style={pulseDotStyle} />
               </div>
