@@ -83,7 +83,7 @@ export default function Home() {
                 letterSpacing: "0.03em",
               }}
             >
-              Now Live in Orlando, FL
+              Coming April 25th to Orlando, FL
             </div>
 
             <h1
